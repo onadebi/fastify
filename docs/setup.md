@@ -63,3 +63,8 @@ PM2 Cluster Mode - Recommended to Production
 npm install -g pm2
 ```
 
+# Database Migrations
+Generate the migrations
+```shell
+npx drizzle-kit generate --config=./app/drizzle.config.ts
+```

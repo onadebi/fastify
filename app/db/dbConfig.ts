@@ -10,6 +10,9 @@ const pool = new Pool({
     connectionTimeoutMillis: 2_000,
 });
 
-export const dbConn = drizzle(pool, { schema });
+export const dbConn = drizzle(pool, {
+    schema,
+    logger: appsettings.ENV.env === 'development'
+});
 
 export type Database = typeof dbConn;

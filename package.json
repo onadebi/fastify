@@ -11,7 +11,12 @@
     "restart:pm2": "pm2 restart onaxerp",
     "logs:pm2": "pm2 logs onaxerp",
     "monitor:pm2": "pm2 monit",
-    "delete:pm2": "pm2 delete onaxerp"
+    "delete:pm2": "pm2 delete onaxerp",
+    "drizzle:generate": "drizzle-kit generate:ts --config ./app/drizzle.config.ts",
+    "drizzle:migrate": "drizzle-kit migrate --config ./app/drizzle.config.ts",
+    "drizzle:rollback": "drizzle-kit migrate down --config ./app/drizzle.config.ts",
+    "drizzle:drop": "drizzle-kit migrate drop --config ./app/drizzle.config.ts",
+    "drizzle:studio": "drizzle-kit studio --config ./app/drizzle.config.ts"
   },
   "keywords": [],
   "author": "",

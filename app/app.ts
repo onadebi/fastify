@@ -5,6 +5,7 @@ import statics from "./plugins/statics";
 import ejs from "./plugins/ejs";
 import jwt from "./plugins/jwt";
 import appRoutes from "./modules/approutes.route";
+import services from "./modules/extensions/services";
 
 export const buildApp = async () => {
     const app = Fastify({
@@ -35,6 +36,8 @@ export const buildApp = async () => {
     await app.register(statics);
     await app.register(ejs);
     await app.register(jwt);
+
+    await app.register(services);
 
     app.get("/", (req, reply) => reply.view("index.ejs", { title: "Fastify Starter" }));
 

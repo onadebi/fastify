@@ -1,3 +1,5 @@
+import { GenResponseSchema } from "../../utils/GenResponse";
+
 export const RegisterSchema = {
   body: {
     type: "object",
@@ -6,6 +8,16 @@ export const RegisterSchema = {
       email: { type: "string" },
       password: { type: "string" }
     }
+  },
+  response: {
+    201: GenResponseSchema({
+      type: "object",
+      properties: {
+        id: { type: "string" },
+        email: { type: "string" }
+      }
+    }),
+    403: GenResponseSchema(null)
   }
 };
 
@@ -17,13 +29,29 @@ export const LoginSchema = {
       email: { type: "string" },
       password: { type: "string" }
     }
+  },
+  response: {
+    201: {
+      type: "object",
+      properties: {
+        id: { type: "string" },
+        email: { type: "string" }
+      }
+    },
+    403: {
+      type: "object",
+      properties: {
+        id: { type: "string" },
+        email: { type: "string" }
+      }
+    },
   }
 };
 
 
 class AuthSchemas {
-    static register = RegisterSchema;
-    static LoginDto = LoginSchema;
+  static register = RegisterSchema;
+  static LoginDto = LoginSchema;
 }
 
 export default AuthSchemas;
