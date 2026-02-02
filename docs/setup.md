@@ -5,6 +5,8 @@ npm init -y
 
 npm install fastify @fastify/swagger @fastify/swagger-ui @fastify/view @fastify/static ejs
 
+npm install @fastify/cookie
+
 npm install dotenv jsonwebtoken @fastify/jwt bcrypt drizzle-orm pg pg-native
 
 npm install -D typescript ts-node nodemon @types/node @types/bcrypt @types/jsonwebtoken @types/dotenv @types/ejs @types/pg

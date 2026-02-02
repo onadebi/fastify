@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const appsettings = {
+    appName: process.env.APP_NAME || 'OnaxERP',
     port: !process.env.PORT || Number.isNaN(Number(process.env.PORT)) || Number(process.env.PORT) === 0 ?  3000 : Number(process.env.PORT),
     ENV:{
         env: !process.env.NODE_ENV || process.env.NODE_ENV.trim() ==="" ? 'development': process.env.NODE_ENV.trim(),
@@ -17,6 +18,20 @@ const appsettings = {
         logging: false,
 
         dbConString: process.env.DATABASE_URL || 'postgresql://username:pwd@localhost:5432/onaxappnode',
+    },
+    Auth:{
+        JwtSecret: process.env.JwtSecret || '',
+        JwtExpiry: '24h',
+        tokenName: 'token',
+        defaultSlidingExpirationOn: true,
+        Session:{
+            tokenName: '_onaxerp_appuser_session',
+            httpOnly: true,
+            secured: true,
+            sameSite: 'none',
+            maxAge: 1 * 60 * 60 * 1000, //12hrs
+            expires: new Date(Date.now() + (1 * 60 * 60 * 1000)),
+        }
     },
 };
 export default appsettings;

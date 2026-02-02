@@ -1,0 +1,24 @@
+@layer reset {
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        color: #111111;
+    }
+
+    a {
+        color: #1a73e8;
+        text-decoration: none;
+    }
+
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #222222;
+        color: #ffffff;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
+}

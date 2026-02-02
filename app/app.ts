@@ -1,3 +1,4 @@
+import cookie from '@fastify/cookie';
 import Fastify from "fastify";
 import swagger from "./plugins/swagger";
 import drizzle from "./plugins/drizzle";
@@ -5,7 +6,9 @@ import statics from "./plugins/statics";
 import ejs from "./plugins/ejs";
 import jwt from "./plugins/jwt";
 import appRoutes from "./modules/approutes.route";
+import {PageRoutes} from './pages/pageroutes.route';
 import services from "./modules/extensions/services";
+import appsettings from './common/config/appsettings';
 
 export const buildApp = async () => {
     const app = Fastify({
@@ -36,10 +39,15 @@ export const buildApp = async () => {
     await app.register(statics);
     await app.register(ejs);
     await app.register(jwt);
+    await app.register(cookie, {
+        secret: appsettings.Auth.JwtSecret
+    });
 
     await app.register(services);
 
-    app.get("/", (req, reply) => reply.view("index.ejs", { title: "Fastify Starter" }));
+    PageRoutes(app);
+
+    // app.get("/", (req, reply) => reply.view("index.ejs", { title: "Fastify Starter" }));
 
     appRoutes(app);
 

@@ -3,7 +3,7 @@ import authRoutes from "./auth/auth.route";
 
 const AppRoutes = (app: FastifyInstance) => {
 
-    app.register(authRoutes, { prefix: "/auth" });
+    app.register(authRoutes, { prefix: "/api/auth" });
 }
 
 export default AppRoutes;

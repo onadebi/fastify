@@ -1,7 +1,7 @@
 const os = require('os');
 const cpuCount = os.cpus().length;
 const maxCPU = !process.env.MAX_CPU_USAGE || Number.isNaN(Number(process.env.MAX_CPU_USAGE)) ?  2: Number(process.env.MAX_CPU_USAGE);
-console.info(`Runninng on max of ${maxCPU} VCPU !!!`)
+
 module.exports = {
     apps: [{
         name: 'onaxerp',

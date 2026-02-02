@@ -1,5 +1,5 @@
 import { buildApp } from "./app";
-import appsettings from "./config/appsettings";
+import appsettings from "./common/config/appsettings";
 
 const start = async () => {
   const app = await buildApp();

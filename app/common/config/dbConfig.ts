@@ -1,7 +1,7 @@
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
-import { schema } from "./schema";
-import appsettings from "../config/appsettings";
+import { schema } from "../../db/schema";
+import appsettings from "./appsettings";
 
 const pool = new Pool({
     connectionString: appsettings.DB.dbConString,

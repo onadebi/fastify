@@ -1,5 +1,5 @@
 import { defineConfig } from 'drizzle-kit';
-import appsettings from './config/appsettings';
+import appsettings from './common/config/appsettings';
 
 
 export default defineConfig({
